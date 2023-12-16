@@ -5,14 +5,16 @@ import src.model.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class UserService implements DataService {
     private List<Animal> animalsList = new ArrayList<>();
     private List<Pet> petsList = new ArrayList<>();
     private List<PackAnimal> packAnimalsList = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void create(Integer animalId, Integer idInCategory, AnimalsCategory category, AnimalsType type, String name, LocalDate dateOfBirth, PetCommands commands) {
+    public void createAnimal(Integer animalId, Integer idInCategory, AnimalsCategory category, AnimalsType type, String name, LocalDate dateOfBirth, PetCommands commands) {
         animalId = getFreeAnimalId(animalsList);
         idInCategory = getFreeCategoryId(category);
         if (AnimalsCategory.PET == category) {
@@ -42,6 +44,11 @@ public class UserService implements DataService {
         return packAnimalsList;
     }
 
+    /**
+     * @apiNote автоматический свободный id животного
+     * @param animalsList список животных
+     * @return int id(свободный id для животного)
+     */
     private int getFreeAnimalId (List<Animal> animalsList){
         int lastId = 0;
         for (Animal animal : animalsList) {
@@ -50,6 +57,11 @@ public class UserService implements DataService {
         return ++lastId;
     }
 
+    /**
+     * @apiNote автоматический свободный id в каждой категории животных
+     * @param category (домашние\вьючные)
+     * @return int id(свободный id в каждой из катеорий животный)
+     */
     private int getFreeCategoryId (AnimalsCategory category){
         int lastId = 0;
         boolean isPet = AnimalsCategory.PET == category;
@@ -64,6 +76,9 @@ public class UserService implements DataService {
         return ++lastId;
     }
 
+    /**
+     * 10. счетчик всех животных в питомнике
+     */
     public void animalCounter() {
         int counter = 0;
         List<Animal> animals = readAllAnimals();
@@ -73,6 +88,9 @@ public class UserService implements DataService {
         System.out.println("Всего животных в питомнике: " + counter);
     }
 
+    /**
+     * 10. счетчик всех ДОМАШНИХ животных в питомнике
+     */
     public void petCounter() {
         int counter = 0;
         List<Pet> pets = readPetsOnly();
@@ -81,7 +99,9 @@ public class UserService implements DataService {
         }
         System.out.println("Всего домашних животных в питомнике: " + counter);
     }
-
+    /**
+     * 10. счетчик всех ВЬЮЧНЫХ животных в питомнике
+     */
     public void packAnimalCounter() {
         int counter = 0;
         List<PackAnimal> packAnimals = readPackAnimalsOnly();
@@ -90,6 +110,4 @@ public class UserService implements DataService {
         }
         System.out.println("Всего вьючных животных в питомнике: " + counter);
     }
-
-
 }

@@ -2,7 +2,6 @@ package src.model;
 
 
 import java.time.LocalDate;
-import java.time.Month;
 
 public abstract class Animal {
     Integer AnimalId;
@@ -82,14 +81,12 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "AnimalId=" + AnimalId +
-                ", idInCategory=" + idInCategory +
-                ", category=" + category +
-                ", type=" + type +
-                ", name='" + name + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", commands=" + commands +
-                '}';
+        return  "AnimalId = " + AnimalId +
+                ", idInCategory = " + idInCategory +
+                ", category = " + category +
+                ", type = " + type +
+                ", name = " + name +
+                ", dateOfBirth = " + dateOfBirth +
+                ", commands = " + commands;
     }
 }
