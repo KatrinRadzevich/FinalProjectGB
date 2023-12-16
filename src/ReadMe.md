@@ -81,7 +81,7 @@ VALUES
 
 select * from pets
 
-![Pets](D:\IT\AnimalsProject\TablePets.png)
+![Pets](TablePets.png)
 _____________
 Создали и заполнили таблицу PackAnimals
 
@@ -121,7 +121,7 @@ VALUES
 
 select * from PackAnimals
 
-![PackAnimals](D:\IT\AnimalsProject\TablePackAnimals.png)
+![PackAnimals](TablePackAnimals.png)
 ____________________
 создаем в новой бд новую таблицу,в которой объединяем 2 превых
 
@@ -140,7 +140,7 @@ SELECT * FROM AnimalsProject.PackAnimals;
 SELECT * FROM AllAnimals;
 
 
-![Animals](D:\IT\AnimalsProject\TableAnimals.png)
+![Animals](TableAnimals.png)
 _________________
 удаляем записи о верблюдах
 
@@ -150,7 +150,7 @@ DELETE FROM PackAnimals WHERE animalType = 'CAMEL';
 
 select * from packanimals
 
-![noCamels](D:\IT\AnimalsProject\DeleteCamels.png)
+![noCamels](DeleteCamels.png)
 _________________
 новая таблица с возрастом 1-3года
 
@@ -170,6 +170,6 @@ WHERE TIMESTAMPDIFF(YEAR, dateOfBirth, CURDATE()) BETWEEN 1 AND 3;
 
 SELECT * FROM AnimalsAge1to3;
 
-![age1-3](D:\IT\AnimalsProject\age1to3.png)
+![age1-3](age1to3.png)
 _______________
-8. ООП и Java. Весь пункт реализован,в документации к методам проставлены конкретные пункты
+8.ООП и Java. Весь пункт реализован,в документации к методам проставлены конкретные пункты
